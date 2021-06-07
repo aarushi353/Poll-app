@@ -11,7 +11,7 @@ class IndexView(generic.ListView):
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
-        return Question.objects.order_by('-pub_date')[:5]
+        return Question.objects.order_by('-pub_date')[:8]
 
 
 class DetailView(generic.DetailView):
@@ -42,4 +42,4 @@ def vote(request, question_id):
 def get_queryset(self):
     return Question.objects.filter(
         pub_date__lte=timezone.now()
-    ).order_by('-pub_date')[:5]
+    ).order_by('-pub_date')[:8]
